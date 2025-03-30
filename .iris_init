@@ -1,0 +1,3 @@
+:alias load zn "IRISAPP" do $system.OBJ.LoadDir("/home/irisowner/dev/src/cls","cuk",,1) do ##class(easybot.core.Loader).Load() ;
+:alias l zn "IRISAPP" do $system.OBJ.LoadDir("/home/irisowner/dev/src/cls","cuk",,1) ;
+:alias easybot zn "IRISAPP" do ##class(easybot.core.Shell).Run() ;

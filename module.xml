@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+  <Document name="easybot.ZPM">
+    <Module>
+      <Name>easybot</Name>
+      <Version>0.0.1</Version>
+      <Description>Easily create chatbots using IRIS Vector Search</Description>
+      <Packaging>module</Packaging>
+      <SourcesRoot>src</SourcesRoot>
+      <Resource Name="easybot.PKG"/>
+      <FileCopy Name="python/" Target="${libdir}python/"/>
+    </Module>
+  </Document>
+</Export>

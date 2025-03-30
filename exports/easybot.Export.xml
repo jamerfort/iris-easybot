@@ -1,0 +1,1539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="IRIS" version="26" zv="IRIS for UNIX (Ubuntu Server LTS for x86-64 Containers) 2025.1 (Build 223U)" ts="2025-03-30 20:58:39">
+<Class name="easybot.bots.CustomAgent">
+<Super>easybot.core.Agent</Super>
+<TimeChanged>67294,73480.096673053</TimeChanged>
+<TimeCreated>67294,73408.325912515</TimeCreated>
+
+<Method name="DaysOfTheWeekAgent">
+<Description>
+Display: List the days of the week
+Keywords: days of the week, weekend, weekday, holiday</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  // Resond with initial information about what you'll be doing...
+  do response.Respond("Here is information I have on the days of the week...")
+
+  // gather information on days of the week
+  // ...somehow...
+  set days = $LB("Sun","Mon","Tue","Wed","Thu","Fri","Sat")
+
+  // Print each day 
+  for i=1:1:$LISTLENGTH(days) {
+    set day = $LISTGET(days, i)
+    do response.ListItem(day)
+  }
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="easybot.bots.DatabaseAgent">
+<Super>easybot.core.Agent</Super>
+<TimeChanged>67294,25637.432694576</TimeChanged>
+<TimeCreated>67294,10455.199009426</TimeCreated>
+
+<Method name="DatabasesGroup">
+<Description>
+Display: Databases Menu
+Keywords: databases, databases menu, databases group</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  do response.EnterGroup("Databases")
+  do response.Respond("How can I help you with databases?")
+]]></Implementation>
+</Method>
+
+<Method name="HelpDatabases">
+<Description>
+Display: Database Help
+Keywords: help databases, explain databases
+Group: Databases</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  do response.Respond("I can help you perform the following database tasks:")
+  do response.Respond("")
+  do response.ListItem("List Databases")
+  do response.ListItem("Filter Databases")
+]]></Implementation>
+</Method>
+
+<Method name="ListDatabases">
+<Description>
+Display: List Databases
+Keywords: list databases, show databases
+Group: Databases</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  do response.Respond("Here are the databases I found:")
+  do response.Respond("")
+  do response.ListItem("DB1")
+  do response.ListItem("DB2")
+  do response.ListItem("DB3")
+]]></Implementation>
+</Method>
+
+<Method name="FilterDatabases">
+<Description>
+Display: Filter Databases
+Keywords: filter databases, select databases, filtered list of databases, show start with, show ends with, show contains, show matches
+Group: Databases</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  do response.Respond("Here are the filtered databases:")
+  do response.Respond("")
+  do response.ListItem("FilteredDB1")
+  do response.ListItem("FilteredDB3")
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="easybot.bots.EnsAgent">
+<Super>easybot.core.Agent</Super>
+<TimeChanged>67294,25827.080151872</TimeChanged>
+<TimeCreated>67294,23532.989270281</TimeCreated>
+
+<Method name="ListInterfaces">
+<Description>
+Display: List Interfaces
+Keywords: list interfaces, list components, show components, show interfaces</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  do response.Respond("Here are the interfaces I found:")
+  do response.Respond("")
+  do response.ListItem("Interface1")
+  do response.ListItem("Interface2")
+  do response.ListItem("Interface3")
+  do response.ListItem("Interface1")
+  do response.ListItem("Interface2")
+  do response.ListItem("Interface1")
+  do response.ListItem("Interface1")
+  do response.ListItem("Interface2")
+  do response.ListItem("Interface1")
+  do response.ListItem("Interface1")
+  do response.ListItem("Interface1")
+  do response.ListItem("Interface2")
+  do response.ListItem("Interface3")
+  do response.ListItem("Interface2")
+  do response.ListItem("Interface3")
+  do response.ListItem("Interface2")
+  do response.ListItem("Interface3")
+  do response.ListItem("Interface3")
+  do response.ListItem("Interface2")
+  do response.ListItem("Interface3")
+  do response.ListItem("Interface3")
+]]></Implementation>
+</Method>
+
+<Method name="StopInterface">
+<Description>
+Display: Stop Interface
+Keywords: stop interface, disable interface</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[  do response.Respond("Which interface would you like to stop?")
+]]></Implementation>
+</Method>
+
+<Method name="StartInterface">
+<Description>
+Display: Start Interface
+Keywords: start interface, enable interface</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[  do response.Respond("Which interface would you like to start?")
+]]></Implementation>
+</Method>
+
+<Method name="StopProduction">
+<Description>
+Display: Stop Production
+Keywords: stop production, disable production</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[  do response.Respond("Which production would you like to stop?")
+]]></Implementation>
+</Method>
+
+<Method name="StartProduction">
+<Description>
+Display: Start Production
+Keywords: start production, enable production</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[  do response.Respond("Which production would you like to start?")
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="easybot.bots.HelpAgent">
+<Super>easybot.core.Agent</Super>
+<TimeChanged>67294,25657.170369433</TimeChanged>
+<TimeCreated>67294,24677.658383519</TimeCreated>
+
+<Method name="ListAgents">
+<Description>
+Display: List Bots, Agents, and Commands
+Keywords: help bots, help agents, list bots, list agents, show bots, show agents</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  do response.Respond("Here are the Agents currently loaded:")
+  do response.Respond("")
+
+  do response.ListItem("Agent1")
+  do response.ListItem("Agent2")
+  do response.ListItem("Agent3")
+]]></Implementation>
+</Method>
+
+<Method name="Help">
+<Description>
+Display: Explain...
+Keywords: I don't understand, I'm confused</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  do response.Respond("Let me help explain.")
+  do response.Respond("I'm an Agent here to help you accomplish tasks and discover information.")
+  do response.Respond("I'm easily extensible with ObjectScript.")
+  do response.Respond("")
+
+  do ..ListAgents(.prompt, .response)
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="easybot.bots.NamespaceAgent">
+<Super>easybot.core.Agent</Super>
+<TimeChanged>67294,25602.471189895</TimeChanged>
+<TimeCreated>67294,8017.482109373</TimeCreated>
+
+<Method name="NamespacesGroup">
+<Description>
+Display: Namespaces Menu
+Keywords: namespaces, namespaces menu, namespaces group</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  do response.EnterGroup("Namespaces")
+  do response.Respond("How can I help you with namespaces?")
+]]></Implementation>
+</Method>
+
+<Method name="ListNamespaces">
+<Description>
+Display: List Namespaces
+Keywords: list namespaces, show namespaces</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  do response.Respond("Here are the namespaces I found:")
+  do response.Respond("")
+  do response.ListItem("Namespace1")
+  do response.ListItem("Namespace2")
+  do response.ListItem("Namespace3")
+]]></Implementation>
+</Method>
+
+<Method name="FilterNamespaces">
+<Description>
+Display: Filter Namespaces
+Keywords: filter namespaces, select namespaces, filtered list of namespaces</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  do response.Respond("Here are the filtered namespaces:")
+  do response.Respond("")
+  do response.ListItem("FilteredNS1")
+  do response.ListItem("FilteredNS3")
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="easybot.core.Agent">
+<Description>
+Base class used for auto-loading Agents/Bots</Description>
+<Super>%RegisteredObject</Super>
+<TimeChanged>67294,8035.371028221</TimeChanged>
+<TimeCreated>67294,8025.072141275</TimeCreated>
+</Class>
+
+
+<Class name="easybot.core.Choice">
+<Super>%RegisteredObject</Super>
+<TimeChanged>67294,18319.931676852</TimeChanged>
+<TimeCreated>67294,18261.569851518</TimeCreated>
+
+<Property name="Display">
+<Type>%String</Type>
+</Property>
+
+<Property name="TargetSpec">
+<Type>%String</Type>
+</Property>
+
+<Property name="Value">
+<Type>%String</Type>
+</Property>
+</Class>
+
+
+<Class name="easybot.core.Embedder">
+<Super>%RegisteredObject</Super>
+<TimeChanged>67294,9634.309689691</TimeChanged>
+<TimeCreated>67294,2877.105708944</TimeCreated>
+
+<Property name="model">
+<Type>%ObjectHandle</Type>
+</Property>
+
+<Method name="EmbedLength">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Numeric</ReturnType>
+<Implementation><![CDATA[
+  // The vector length of the model defined in InitModel().
+  return 384
+]]></Implementation>
+</Method>
+
+<Method name="InitModel">
+<Language>python</Language>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+  import fastembed
+  self.model = fastembed.TextEmbedding()
+
+  return 1
+]]></Implementation>
+</Method>
+
+<Method name="EmbedDocs">
+<FormalSpec>docs:%ListOfDataTypes</FormalSpec>
+<Language>python</Language>
+<ReturnType>%ListOfDataTypes</ReturnType>
+<Implementation><![CDATA[
+  import iris
+  vecs = iris.cls('%ListOfDataTypes')._New()
+
+  pydocs = []
+  for i in range(docs.Count()):
+    doc = docs.GetAt(i+1)
+    pydocs.append(doc)
+
+  for vec in self.model.embed(pydocs):
+    vecstr = ','.join([str(i) for i in vec])
+    vecs.Insert(vecstr)
+  
+  return vecs
+]]></Implementation>
+</Method>
+
+<Method name="EmbedDoc">
+<FormalSpec>doc:%String</FormalSpec>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+  set docs = ##class(%ListOfDataTypes).%New()
+  do docs.Insert(doc)
+
+  set vecs = ..EmbedDocs(docs)
+
+  return vecs.GetAt(1)
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="easybot.core.Loader">
+<Super>%RegisteredObject</Super>
+<TimeChanged>67294,74997.520306727</TimeChanged>
+<TimeCreated>67294,5725.702049179</TimeCreated>
+
+<Method name="Load">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+
+  // Recreate the Target table
+  set status = ##class(TargetStore).RecreateTable()
+  if $$$ISERR(status) {
+    return status
+  }
+
+  // Create an embedder
+  set embedder = ##class(Embedder).%New()
+  do embedder.InitModel()
+
+  set classes = ..ListSubclasses("easybot.core.Agent")
+  for i=1:1:classes.Count() {
+    set cls = classes.GetAt(i)
+
+    set status = ..LoadClass(cls, .embedder)
+  }
+]]></Implementation>
+</Method>
+
+<Method name="ListSubclasses">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[baseClass:%String,&status:%Status]]></FormalSpec>
+<ReturnType>%ListOfDataTypes</ReturnType>
+<Implementation><![CDATA[
+  set status = $$$OK
+  set rslts = ##class(%ListOfDataTypes).%New()
+
+  set statement = ##class(%SQL.Statement).%New()
+  set status = statement.%PrepareClassQuery("%Dictionary.ClassDefinition", "SubclassOf")
+
+  if $$$ISERR(status) {
+    return rslts
+  }
+
+  set rset = statement.%Execute(baseClass)
+
+  while rset.%Next() {
+    do rslts.Insert(rset.%Get("Name"))
+  }
+
+  return rslts
+]]></Implementation>
+</Method>
+
+<Method name="LoadClass">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[className:%String,&embedder:Embedder]]></FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+  w "Loading "_className,!
+
+  set cls = ##class(%Dictionary.ClassDefinition).%OpenId(className)
+
+  for i=1:1:cls.Methods.Count() {
+    set method = cls.Methods.GetAt(i)
+    set spec = className_":"_method.Name
+
+    set target = ##class(Target).%New()
+    set target.ID = spec
+    set target.Spec = spec
+    set target.Display = spec
+    set target.Type = "Agent"
+
+    set keywords = ""
+
+    set NEWLINE = $CHAR(13)_$CHAR(10)
+    set lines = $LISTFROMSTRING(method.Description, NEWLINE)
+
+    for n=1:1:$LISTLENGTH(lines) {
+      set line = $LISTGET(lines, n)
+
+      // Does the line contain a ":"
+      if '(line [ ":") {
+        // Nope, skip to next line
+        continue
+      }
+
+      // Extract: label: Value
+      set label = $PIECE(line, ":", 1)
+      set value = $PIECE(line, ":", 2,*)
+
+      // Remove leading/trailing whitespace
+      set label = $ZSTRIP(label, "<>W")
+      set value = $ZSTRIP(value, "<>W")
+
+      // uppercase the label
+      set label = $ZCONVERT(label, "U")
+
+      // skip blank values
+      if value = "" {
+        continue
+      }
+
+      if label = "ID" {
+        set target.ID = value
+        continue
+      }
+
+      if label = "DISPLAY" {
+        set target.Display = value
+        continue
+      }
+
+      if (label = "TYPE") || (label = "GROUP") {
+        set target.Type = value
+        continue
+      }
+
+      if label = "KEYWORDS" {
+        set $LIST(keywords, *+1) = value
+        continue
+      }
+    }
+
+    if $LISTLENGTH(keywords) > 0 {
+      set fullkeywords = $LISTTOSTRING(keywords, "; ")
+      set vec = embedder.EmbedDoc(fullkeywords)
+      write " - "_target.Display,!
+      set status = ##class(TargetStore).Insert(target.ID, target.Type, target.Spec, target.Display, fullkeywords, vec)
+    }
+  }
+
+  write !
+
+  return $$$OK
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="easybot.core.Prompt">
+<Super>%RegisteredObject</Super>
+<TimeChanged>67294,15234.570356774</TimeChanged>
+<TimeCreated>67293,61493.379351257</TimeCreated>
+
+<Property name="UserValue">
+<Type>%String</Type>
+</Property>
+
+<Property name="Value">
+<Type>%String</Type>
+</Property>
+
+<Property name="Vector">
+<Type>%String</Type>
+</Property>
+
+<Method name="FromString">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>userPrompt:%String</FormalSpec>
+<ReturnType>Prompt</ReturnType>
+<Implementation><![CDATA[
+  set prompt = ##class(Prompt).%New()
+  set prompt.UserValue = userPrompt
+  set prompt.Value = userPrompt
+
+  return prompt
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="easybot.core.PromptTransformer">
+<Super>%RegisteredObject</Super>
+<TimeChanged>67294,13449.412456518</TimeChanged>
+<TimeCreated>67293,61343.151122336</TimeCreated>
+
+<Method name="Handle">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[spec:%String,&prompt:Prompt,&response:ShellResponse]]></FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+  do response.DEBUG(2, "PromptTransformer:Handle()", "spec="_spec)
+  set status = $$$OK
+
+  // Do nothing
+  if spec = "" {
+    return status
+  }
+
+  // Handle className:methodName specs
+  set className = $PIECE(spec, ":", 1)
+  set methodName = $PIECE(spec, ":", 2)
+
+  try {
+    do response.DEBUG(2, "PromptTransformer:Calling", "##class("_className_")."_methodName)
+    do $CLASSMETHOD(className, methodName, prompt, .status, .response)
+  } catch err {
+    set status = $$$ERROR($$$GeneralError, "Error calling PromptTransformer spec: "_spec)
+    return $$$ADDSC(status, $$$ERROR($$$GeneralError, err.DisplayString()))
+  }
+
+  return status
+]]></Implementation>
+</Method>
+
+<Method name="NoOp">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[prompt:Prompt,&status:%Status,&response:ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  set status = $$$OK
+
+  // Do something to prompt.Value.
+  // Do NOT modify prompt.UserValue.
+  //set prompt.Value = $ZCONVERT(prompt.Value, "U")
+]]></Implementation>
+</Method>
+
+<Method name="Uppercase">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[prompt:Prompt,&status:%Status,&response:ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  set status = $$$OK
+
+  set prompt.Value = $ZCONVERT(prompt.Value, "U")
+]]></Implementation>
+</Method>
+
+<Method name="Lowercase">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[prompt:Prompt,&status:%Status,&response:ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  set status = $$$OK
+
+  set prompt.Value = $ZCONVERT(prompt.Value, "L")
+]]></Implementation>
+</Method>
+
+<Method name="Choose">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[prompt:Prompt,&status:%Status,&response:ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  set status = $$$OK
+
+  set prompt.Value = $ZCONVERT(prompt.Value, "L")
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="easybot.core.Session">
+<Super>%RegisteredObject</Super>
+<TimeChanged>67294,22884.074253403</TimeChanged>
+<TimeCreated>67293,59947.127693668</TimeCreated>
+
+<Property name="PromptTransformerSpec">
+<Description>
+Which "classname:methodname" should be called with the user prompt?
+
+Method signature:
+ClassMethod methodname(prompt As Prompt, ByRef status As %Status)
+
+See easybot.core.PromptTransformer class.</Description>
+<Type>%String</Type>
+</Property>
+
+<Property name="DebugLevel">
+<Type>%Numeric</Type>
+</Property>
+
+<Property name="Choices">
+<Type>Choice</Type>
+<Collection>list</Collection>
+</Property>
+
+<Property name="CurrentGroup">
+<Type>%String</Type>
+</Property>
+
+<Property name="Embedder">
+<Type>Embedder</Type>
+</Property>
+
+<Method name="Init">
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+  set ..DebugLevel = 0
+  set ..Choices = ##class(%ListOfObjects).%New()
+  set ..CurrentGroup = ""
+
+  set ..Embedder = ##class(Embedder).%New()
+  return ..Embedder.InitModel()
+]]></Implementation>
+</Method>
+
+<Method name="Welcome">
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[  return "How can I help you?"
+]]></Implementation>
+</Method>
+
+<Method name="StoreState">
+<Description>
+Store any state from the response needed for the
+next interaction.
+
+For example, choices.</Description>
+<FormalSpec><![CDATA[&response:ShellResponse]]></FormalSpec>
+<ReturnType>ShellResponse</ReturnType>
+<Implementation><![CDATA[
+  set ..Choices = response.choices
+  set ..CurrentGroup = response.currentGroup
+  return response
+]]></Implementation>
+</Method>
+
+<Method name="Chat">
+<FormalSpec>userPrompt:%String</FormalSpec>
+<ReturnType>ShellResponse</ReturnType>
+<Implementation><![CDATA[
+  set topN = 5
+  set baseThreshold = 0.6
+  set diffThreshold = 0.08
+
+  // Init response object ***********************************************************
+  set response = ##class(ShellResponse).%New()
+  set response.error = $$$OK
+  set response.DebugLevel = ..DebugLevel
+
+  // Build and transform the prompt *************************************************
+  do response.DEBUG(1, "Original Prompt", userPrompt)
+
+  set prompt = ##class(Prompt).FromString(userPrompt)
+  set status = ##class(PromptTransformer).Handle(..PromptTransformerSpec, .prompt, .response)
+  set ..PromptTransformerSpec = ""
+
+  do response.DEBUG(1, "Transformed Prompt", prompt.Value)
+
+  if $$$ISERR(status) {
+    // Don't respond here.  Allow the PromptTransformer
+    // to respond to the user as needed.
+    set response.error = status
+
+    return ..StoreState(.response)
+  }
+
+  // Embed/Vectorize the Prompt ******************************************************
+  do response.DEBUG(1, "Embedding Prompt")
+  set prompt.Vector = ..Embedder.EmbedDoc(prompt.Value)
+
+  // Handle Choices **********************************************************************
+  if ..Choices.Count() > 0 {
+    do response.DEBUG(1, "Selecting Choice from "_..Choices.Count()_" Choices", prompt.Value)
+
+    // Valid choice
+    if $ISVALIDNUM(prompt.Value, 0, 1, ..Choices.Count()) {
+      set choice = ..Choices.GetAt(prompt.Value)
+      set response = ..CallTarget(choice.TargetSpec, .prompt, .response)
+      return ..StoreState(.response)
+    }
+
+    // Invalid choice
+    do response.Respond("Try again.")
+    do response.Respond("Choose one of these options...")
+    for i=1:1:..Choices.Count() {
+      set choice = ..Choices.GetAt(i)
+      do response.Choice(choice.Display, choice.TargetSpec, choice.Value)
+    }
+    return ..StoreState(.response)
+
+  }
+
+  // Find all target Actions or Groups ***************************************************
+  set allTargets = ##class(%ListOfObjects).%New()
+
+  if ..CurrentGroup = "" {
+    do response.DEBUG(1, "Finding Matches")
+    set status = ##class(TargetStore).Query(prompt.Vector, .allTargets, topN)
+  } else {
+    do response.DEBUG(1, "Finding Matches for Group: "_..CurrentGroup)
+    set status = ##class(TargetStore).QueryByType(prompt.Vector, ..CurrentGroup, .allTargets, topN)
+  }
+
+  for i=1:1:allTargets.Count() {
+    set target = allTargets.GetAt(i)
+    do response.DEBUG(2, "Matching Target", i_". "_target.Spec_" ("_$DECIMAL(target.Score,2)_")")
+  }
+
+  if $$$ISERR(status) {
+    set response.error = status
+    do response.Respond("Unable to help with that.")
+    do response.Respond("Try again...")
+
+    return ..StoreState(.response)
+  }
+
+  // Reduce Targets by Score *********************************************************
+  set targets = ..ReduceTargets(.allTargets, baseThreshold, diffThreshold, .status) 
+
+  // Choose or Call Target ***********************************************************
+  // No matches
+  if targets.Count() = 0 {
+    do response.Respond("I couldn't find anything related to that.")
+    do response.Respond("Try again...")
+
+    return ..StoreState(.response)
+  }
+
+  // Single match...yeah!
+  if targets.Count() = 1 {
+    set target = targets.GetAt(1)
+    set response = ..CallTarget(target.Spec, .prompt, .response)
+
+    return ..StoreState(.response)
+  }
+
+  // Multiple possibilities
+  do response.Respond("Choose one of these options...")
+  for i=1:1:targets.Count() {
+    set target = targets.GetAt(i)
+    set score = $DECIMAL(target.Score, 2)
+
+    set line = target.Display_" ("_score_")"
+    do response.Choice(line, target.Spec, i)
+  }
+
+  // Return response *****************************************************************
+  return ..StoreState(.response)
+]]></Implementation>
+</Method>
+
+<Method name="ReduceTargets">
+<FormalSpec><![CDATA[&targets:%ListOfObjects,baseThreshold:%Numeric=0.6,diffThreshold:%Numeric=0.1,&status:%Status]]></FormalSpec>
+<ReturnType>%ListOfObjects</ReturnType>
+<Implementation><![CDATA[
+  set status = $$$OK
+  set results = ##class(%ListOfObjects).%New()
+
+  if targets.Count() = 0 {
+    // Nothing to do
+    return results
+  }
+
+  set top = targets.GetAt(1)
+  if top.Score <= baseThreshold {
+    return results
+  }
+
+  do results.Insert(top)
+
+  if targets.Count() = 1 {
+    // Nothing else to do
+    return results
+  }
+
+  set thresh = top.Score - diffThreshold
+  if baseThreshold > thresh {
+    set thresh = baseThreshold
+  }
+
+  for i=2:1:targets.Count() {
+    set target = targets.GetAt(i)
+
+    if target.Score > thresh {
+      do results.Insert(target)
+    } else {
+      // doesn't match threshold, bail out early
+      return results
+    }
+  }
+
+  return results
+]]></Implementation>
+</Method>
+
+<Method name="CallTarget">
+<FormalSpec><![CDATA[spec:%String,&prompt:Prompt,&response:ShellResponse]]></FormalSpec>
+<ReturnType>ShellResponse</ReturnType>
+<Implementation><![CDATA[
+  set className = $PIECE(spec, ":", 1)
+  set methodName = $PIECE(spec, ":", 2)
+
+  set inst = $CLASSMETHOD(className, "%New")
+  do $METHOD(inst, methodName, .prompt, .response)
+  return response
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="easybot.core.Shell">
+<Super>%RegisteredObject</Super>
+<TimeChanged>67294,25762.102040495</TimeChanged>
+<TimeCreated>67293,59796.051662966</TimeCreated>
+
+<Property name="UserPS1">
+<Type>%String</Type>
+</Property>
+
+<Property name="ResponsePS1">
+<Type>%String</Type>
+</Property>
+
+<Property name="ListItemPS1">
+<Type>%String</Type>
+</Property>
+
+<Property name="NumberedItemPS1">
+<Type>%String</Type>
+</Property>
+
+<Property name="ErrorPS1">
+<Type>%String</Type>
+</Property>
+
+<Property name="DebugPS1">
+<Type>%String</Type>
+</Property>
+
+<Property name="ChoicePS1">
+<Type>%String</Type>
+</Property>
+
+<Method name="Run">
+<ClassMethod>1</ClassMethod>
+<Implementation><![CDATA[
+  set shell = ##class(Shell).%New()
+  set shell.UserPS1         = ">>> "
+  set shell.ResponsePS1     = "    | "
+  set shell.ListItemPS1     = "    | - "
+  set shell.NumberedItemPS1 = "    | # "
+  set shell.ErrorPS1        = "!!! "
+  set shell.DebugPS1        = "##### "
+  set shell.ChoicePS1       = "      #. "
+
+  do shell.Start()
+]]></Implementation>
+</Method>
+
+<Method name="Start">
+<Implementation><![CDATA[
+  //set builtins = ##class(%SYS.Python).Import("builtins")
+  //set None = ##class(%SYS.Python).None()
+  //set easybotpy = ##class(%SYS.Python).Import("easybotpy")
+  set session = ##class(Session).%New()
+  set status = session.Init()
+  set choices = 0
+  // set choices(#) = $LB("CHOICE", display, targetSpec, value)
+
+  if $$$ISERR(status) {
+    do ..HandleError(status)
+  }
+
+  // Print a welcome message
+  w session.Welcome(),!
+
+  // Turn off terminal history
+  use 0:(:"-R")
+
+  // START REPL Loop #########################################################################
+  while 1 {
+    if session.CurrentGroup '= "" {
+      write "Current Menu: "_session.CurrentGroup,!
+    }
+    write ..UserPS1
+    read prompt,!
+
+    // Ignore blank lines
+    if (prompt = "") {
+      continue
+    }
+
+    // Handle exits
+    if (prompt = "exit") || (prompt = "quit") || (prompt = "halt") || (prompt = "h") || (prompt = "q") {
+      // Quit out of the while loop, not the function
+      quit
+    }
+
+    // Handle clear screen
+    if (prompt = "clear") {
+      write #
+      continue
+    }
+
+    // Handle debugging
+    if (prompt = "debug") {
+      set session.DebugLevel = session.DebugLevel + 1
+      w "Increasing debugging to ",session.DebugLevel,!
+      continue
+    }
+
+    // Handle debugging
+    if (prompt = "nodebug") {
+      w "Turning off debugging",!
+      set session.DebugLevel = 0
+      continue
+    }
+
+    // Handle reset
+    if (prompt = "reset") {
+      w "Resetting chat",!
+      do session.Init()
+      continue
+    }
+
+    // Handle load
+    if (prompt = "load") {
+      w "Reloading",!
+      do ##class(easybot.core.Loader).Load()
+      continue
+    }
+
+    // Process Prompt ##################
+    set response = session.Chat(prompt)
+    do ..PrintLines(response.lines)
+
+    if $$$ISERR(response.error) {
+      do ..HandleError(response.error)
+    }
+    // #################################
+  }
+  // END REPL Loop ###########################################################################
+
+  // Turn on terminal history
+  use 0:(:"+R")
+]]></Implementation>
+</Method>
+
+<Method name="PrintLines">
+<FormalSpec><![CDATA[&lines:%String,lineDelay:%Numeric="0.03"]]></FormalSpec>
+<Implementation><![CDATA[
+  set count = lines.Count()
+  set choices = 0
+  set numitems = 0
+
+  for i=1:1:count {
+    set line = lines.GetAt(i)
+
+    set type = $LISTGET(line, 1)
+    set value = $LISTGET(line, 2)
+
+    if type = "LINE" {
+      write value,!
+
+    } elseif type = "RESPONSE" {
+      write ..ResponsePS1_value,!
+
+    } elseif type = "LISTITEM" {
+      write ..ListItemPS1_value,!
+
+    } elseif type = "NUMBEREDITEM" {
+      set numitems = numitems + 1
+      set ps1 = $REPLACE(..NumberedItemPS1, "#", numitems)
+      write ps1_value,!
+
+    } elseif type = "DEBUG" {
+      set rightSide = $LISTGET(line,3)
+      set level = $LISTGET(line,4)
+
+      set fullvalue = ..toColumnString(value, rightSide, 40)
+      write ..DebugPS1_fullvalue,!
+
+    } elseif type = "CHOICE" {
+      set choices = choices + 1
+
+      set choice = $LISTGET(line, 3)
+
+      set ps1 = $REPLACE(..ChoicePS1, "#", choices)
+      write ps1_value,!
+
+    }
+
+    // Sleep to simulate typing
+    if lineDelay > 0 {
+      hang lineDelay
+    }
+  }
+]]></Implementation>
+</Method>
+
+<Method name="toColumnString">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>col1,col2:%String,col1Width:%Numeric=40</FormalSpec>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+  if col2 = "" {
+    return col1
+  }
+
+  set len = $LENGTH(col1)
+
+  set spaces = " "
+
+  if len >= col1Width {
+    return col1_spaces_col2
+  }
+
+  for i=1:1:col1Width-len {
+    set spaces = spaces_" "
+  }
+
+  return col1_spaces_col2
+]]></Implementation>
+</Method>
+
+<Method name="HandleError">
+<FormalSpec>error:%Status</FormalSpec>
+<Implementation><![CDATA[
+  set lines = ##class(%ListOfDataTypes).%New()
+
+  do lines.Insert($LB("ERROR", "==================================================================================="))
+  do lines.Insert($LB("ERROR", $SYSTEM.Status.GetErrorText(error)))
+  do lines.Insert($LB("ERROR", ""))
+  do lines.Insert($LB("ERROR", "==================================================================================="))
+
+  do ..PrintLines(.lines)
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="easybot.core.ShellResponse">
+<Super>%RegisteredObject</Super>
+<TimeChanged>67294,25311.379299248</TimeChanged>
+<TimeCreated>67293,61047.370921215</TimeCreated>
+
+<Property name="lines">
+<Description>
+Buffer of lines for this response.
+These will be displayed by the user interface once
+it receives the response.</Description>
+<Type>%String</Type>
+<Collection>list</Collection>
+</Property>
+
+<Property name="error">
+<Description>
+Which error/status to pass to user interface?</Description>
+<Type>%Status</Type>
+</Property>
+
+<Property name="choices">
+<Description>
+Which choices have been given to the user
+with this response?</Description>
+<Type>Choice</Type>
+<Collection>list</Collection>
+</Property>
+
+<Property name="currentGroup">
+<Description>
+The current menu group we are limited to.</Description>
+<Type>%String</Type>
+</Property>
+
+<Property name="PromptTransformerSpec">
+<Description>
+Which "classname:methodname" should be called with the user prompt?
+
+Method signature:
+ClassMethod methodname(prompt As Prompt, ByRef status As %Status)
+
+See easybot.core.PromptTransformer class.</Description>
+<Type>%String</Type>
+</Property>
+
+<Property name="PS1">
+<Description>
+What to prepend to response lines called with Respond(line)</Description>
+<Type>%String</Type>
+</Property>
+
+<Property name="DebugLevel">
+<Description>
+What DebugLevel is active?</Description>
+<Type>%Numeric</Type>
+</Property>
+
+<Property name="DebugPS1">
+<Description>
+What to prepend to debug lines</Description>
+<Type>%String</Type>
+</Property>
+
+<Method name="Println">
+<Description>
+Add a regular line to the output lines.
+Use this for result output.
+Use Respond(line) for "conversing" with the user.</Description>
+<FormalSpec>line:%String,prefix:%String=""</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[  return ..lines.Insert($LB("LINE", line))
+]]></Implementation>
+</Method>
+
+<Method name="Respond">
+<Description>
+Add a response line to the output.
+Use this for "conversing" with the user.
+Use Println(line) for result output.</Description>
+<FormalSpec>line:%String</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[  return ..lines.Insert($LB("RESPONSE", line))
+]]></Implementation>
+</Method>
+
+<Method name="ListItem">
+<Description>
+Add a list item line to the output.</Description>
+<FormalSpec>line:%String</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[  return ..lines.Insert($LB("LISTITEM", line))
+]]></Implementation>
+</Method>
+
+<Method name="NumberedItem">
+<Description>
+Add a numbered list item line to the output.</Description>
+<FormalSpec>line:%String</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[  return ..lines.Insert($LB("NUMBEREDITEM", line))
+]]></Implementation>
+</Method>
+
+<Method name="Choice">
+<Description>
+Add a choice line to the output.
+Use this for "conversing" with the user.
+Use Println(line) for result output.</Description>
+<FormalSpec>line,targetSpec,value:%String</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+  set choice = ##class(Choice).%New()
+  set choice.Display = line
+  set choice.TargetSpec = targetSpec
+  set choice.Value = value
+
+  do ..choices.Insert(choice)
+
+  return ..lines.Insert($LB("CHOICE", choice.Display, choice))
+]]></Implementation>
+</Method>
+
+<Method name="DEBUG">
+<Description>
+Add a debug line if DebugLevel is high enough.</Description>
+<FormalSpec>level:%Numeric,message:%String,rightSide:%String=""</FormalSpec>
+<Implementation><![CDATA[
+  if ..DebugLevel < level {
+    return 
+  }
+
+  return ..lines.Insert($LB("DEBUG", message, rightSide, ..DebugLevel))
+]]></Implementation>
+</Method>
+
+<Method name="NextPrompt">
+<Description>
+Which PromptTransformer function should be used
+to process the user's next input?
+
+See easybot.core.PromptTransformer for info on the
+spec format.</Description>
+<FormalSpec>promptTransformerSpec:%String</FormalSpec>
+<Implementation><![CDATA[  set ..PromptTransformerSpec = promptTransformerSpec
+]]></Implementation>
+</Method>
+
+<Method name="EnterGroup">
+<FormalSpec>group:%String</FormalSpec>
+<Implementation><![CDATA[  set ..currentGroup = group
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="easybot.core.Target">
+<Super>%RegisteredObject</Super>
+<TimeChanged>67294,9100.793253866</TimeChanged>
+<TimeCreated>67294,1548.335986553</TimeCreated>
+
+<Property name="ID">
+<Type>%Library.String</Type>
+<SqlColumnNumber>2</SqlColumnNumber>
+<Parameter name="MAXLEN" value="255"/>
+</Property>
+
+<Property name="Type">
+<Type>%Library.String</Type>
+<SqlColumnNumber>3</SqlColumnNumber>
+<Parameter name="MAXLEN" value="255"/>
+</Property>
+
+<Property name="Spec">
+<Type>%Library.String</Type>
+<SqlColumnNumber>4</SqlColumnNumber>
+<Parameter name="MAXLEN" value="255"/>
+</Property>
+
+<Property name="Display">
+<Type>%Library.String</Type>
+<SqlColumnNumber>5</SqlColumnNumber>
+<Parameter name="MAXLEN" value="255"/>
+</Property>
+
+<Property name="Keywords">
+<Type>%Stream.GlobalCharacter</Type>
+<SqlColumnNumber>6</SqlColumnNumber>
+</Property>
+
+<Property name="Score">
+<Type>%Numeric</Type>
+</Property>
+</Class>
+
+
+<Class name="easybot.core.TargetStore">
+<Super>%RegisteredObject</Super>
+<TimeChanged>67294,21534.092423806</TimeChanged>
+<TimeCreated>67293,84004.027400832</TimeCreated>
+
+<Method name="CreateTable">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+  set vecLength = ##class(Embedder).EmbedLength()
+
+  set query = ""
+    _"CREATE TABLE easybot_store.Targets ("
+    _"  ID              VARCHAR(255),"
+    _"  Type            VARCHAR(255),"
+    _"  Spec            VARCHAR(255),"
+    _"  Display         VARCHAR(255),"
+    _" "
+    _"  Keywords        TEXT,"
+    _"  Embedding       VECTOR(DOUBLE, "_vecLength_")"
+    _")"
+  
+  set statement = ##class(%SQL.Statement).%New()
+  set sc = statement.%Prepare(query)
+
+  if $$$ISERR(sc) {
+    return sc
+  }
+
+  return statement.%Execute()
+]]></Implementation>
+</Method>
+
+<Method name="DropTable">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+  set query = "DROP TABLE easybot_store.Targets"
+  
+  set statement = ##class(%SQL.Statement).%New()
+  set sc = statement.%Prepare(query)
+
+  if $$$ISERR(sc) {
+    return sc
+  }
+
+  return statement.%Execute()
+]]></Implementation>
+</Method>
+
+<Method name="RecreateTable">
+<ClassMethod>1</ClassMethod>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+  set sc = ..DropTable()
+  if $$$ISERR(sc) {
+    return sc
+  }
+
+  return ..CreateTable()
+]]></Implementation>
+</Method>
+
+<Method name="Insert">
+<ClassMethod>1</ClassMethod>
+<FormalSpec>id,type,spec,display,keywords,vec</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+  set query = ""
+    _"INSERT INTO easybot_store.Targets ("
+    _"  ID, Type, Spec, Display, Keywords, Embedding"
+    _") VALUES ( ?, ?, ?, ?, ?, TO_VECTOR(?, DOUBLE))"
+  
+  set statement = ##class(%SQL.Statement).%New()
+  set sc = statement.%Prepare(query)
+
+  if $$$ISERR(sc) {
+    return sc
+  }
+
+  return statement.%Execute(id, type, spec, display, keywords, vec)
+]]></Implementation>
+</Method>
+
+<Method name="QueryByType">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[vec:%String,targetType:%String,&results:%ListOfObjects,topN:%Numeric=5]]></FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+  set query = ""
+    _"SELECT TOP ?"
+    _"  ID, Type, Spec, Display, Keywords, VECTOR_DOT_PRODUCT(Embedding, TO_VECTOR(?, DOUBLE)) as Score"
+    _" FROM easybot_store.Targets"
+    _" WHERE Type = ?"
+    _" ORDER BY Score DESC"
+  
+  set statement = ##class(%SQL.Statement).%New()
+  set sc = statement.%Prepare(query)
+
+  if $$$ISERR(sc) {
+    return sc
+  }
+
+  set rset = statement.%Execute(topN, vec, targetType)
+
+  return ..handleQueryResults(.rset, .results)
+]]></Implementation>
+</Method>
+
+<Method name="Query">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[vec:%String,&results:%ListOfObjects,topN:%Numeric=5]]></FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+  set query = ""
+    _"SELECT TOP ?"
+    _"  ID, Type, Spec, Display, Keywords, VECTOR_DOT_PRODUCT(Embedding, TO_VECTOR(?, DOUBLE)) as Score"
+    _" FROM easybot_store.Targets"
+    _" WHERE Type in ('GROUP', 'AGENT')"
+    _" ORDER BY Score DESC"
+  
+  set statement = ##class(%SQL.Statement).%New()
+  set sc = statement.%Prepare(query)
+
+  if $$$ISERR(sc) {
+    return sc
+  }
+
+  set rset = statement.%Execute(topN, vec)
+
+  return ..handleQueryResults(.rset, .results)
+]]></Implementation>
+</Method>
+
+<Method name="handleQueryResults">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[&rset:%SQL.StatementResult,&results:%ListOfObjects]]></FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+  if rset.%SQLCODE < 0 {
+    set err = $System.Error.FromSQLCode(rset.%SQLCODE, "Error querying easybot_store.Targets") 
+    return err.Status
+  }
+
+  while rset.%Next() {
+    set target = ##class(easybot.core.Target).%New()
+    set target.ID       = rset.%Get("ID")
+    set target.Type     = rset.%Get("Type")
+    set target.Spec     = rset.%Get("Spec")
+    set target.Display  = rset.%Get("Display")
+    set target.Keywords = rset.%Get("Keywords")
+    set target.Score    = rset.%Get("Score")
+
+    do results.Insert(target)
+  }
+
+  return $$$OK
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="easybot.store.Targets">
+<Description>
+</Description>
+<Final>1</Final>
+<ClassType>persistent</ClassType>
+<DdlAllowed>1</DdlAllowed>
+<Owner>irisowner</Owner>
+<ProcedureBlock>1</ProcedureBlock>
+<SqlRowIdPrivate>1</SqlRowIdPrivate>
+<SqlTableName>Targets</SqlTableName>
+<Super>%Persistent</Super>
+<TimeChanged>67294,75020.749867664</TimeChanged>
+<TimeCreated>67294,75020.716674403</TimeCreated>
+
+<Property name="ID">
+<Type>%Library.String</Type>
+<Collection/>
+<Required>0</Required>
+<SqlColumnNumber>2</SqlColumnNumber>
+<Parameter name="MAXLEN" value="255"/>
+</Property>
+
+<Property name="Type">
+<Type>%Library.String</Type>
+<Collection/>
+<Required>0</Required>
+<SqlColumnNumber>3</SqlColumnNumber>
+<Parameter name="MAXLEN" value="255"/>
+</Property>
+
+<Property name="Spec">
+<Type>%Library.String</Type>
+<Collection/>
+<Required>0</Required>
+<SqlColumnNumber>4</SqlColumnNumber>
+<Parameter name="MAXLEN" value="255"/>
+</Property>
+
+<Property name="Display">
+<Type>%Library.String</Type>
+<Collection/>
+<Required>0</Required>
+<SqlColumnNumber>5</SqlColumnNumber>
+<Parameter name="MAXLEN" value="255"/>
+</Property>
+
+<Property name="Keywords">
+<Type>%Stream.GlobalCharacter</Type>
+<Collection/>
+<Required>0</Required>
+<SqlColumnNumber>6</SqlColumnNumber>
+</Property>
+
+<Property name="Embedding">
+<Type>%Library.Vector</Type>
+<Collection/>
+<Required>0</Required>
+<SqlColumnNumber>7</SqlColumnNumber>
+<Parameter name="DATATYPE" value="DOUBLE"/>
+<Parameter name="LEN" value="384"/>
+</Property>
+
+<Index name="DDLBEIndex">
+<Description>
+Bitmap Extent Index auto-generated by DDL CREATE TABLE statement.  Do not edit the SqlName of this index.</Description>
+<Type>bitmap</Type>
+<Extent>1</Extent>
+<Properties/>
+<SqlName>%%DDLBEIndex</SqlName>
+</Index>
+
+<Parameter name="USEEXTENTSET">
+<Default>1</Default>
+</Parameter>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+<DataLocation>^D1oJ.Bm7r.1</DataLocation>
+<DefaultData>TargetsDefaultData</DefaultData>
+<IdLocation>^D1oJ.Bm7r.1</IdLocation>
+<IndexLocation>^D1oJ.Bm7r.I</IndexLocation>
+<StreamLocation>^D1oJ.Bm7r.S</StreamLocation>
+<IdFunction>sequence</IdFunction>
+<ExtentLocation>^D1oJ.Bm7r</ExtentLocation>
+<Data name="TargetsDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>ID</Value>
+</Value>
+<Value name="2">
+<Value>Type</Value>
+</Value>
+<Value name="3">
+<Value>Spec</Value>
+</Value>
+<Value name="4">
+<Value>Display</Value>
+</Value>
+<Value name="5">
+<Value>Keywords</Value>
+</Value>
+</Data>
+<Data name="_GBL_Embedding">
+<Attribute>Embedding</Attribute>
+<Structure>node</Structure>
+<DataDefinitionLocation>^D1oJ.Bm7r.1.P1</DataDefinitionLocation>
+<Value name="1">
+<Value>Embedding</Value>
+</Value>
+</Data>
+<Index name="DDLBEIndex">
+<Location>^D1oJ.Bm7r.2</Location>
+</Index>
+<Index name="IDKEY">
+<Location>^D1oJ.Bm7r.1</Location>
+</Index>
+</Storage>
+</Class>
+</Export>
