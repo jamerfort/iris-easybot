@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Export generator="IRIS" version="26" zv="IRIS for UNIX (Ubuntu Server LTS for x86-64 Containers) 2025.1 (Build 223U)" ts="2025-03-31 01:35:26">
+<Export generator="IRIS" version="26" zv="IRIS for UNIX (Ubuntu Server LTS for x86-64 Containers) 2025.1 (Build 223U)" ts="2025-03-31 01:52:39">
 <Class name="easybot.bots.CustomAgent">
 <Super>easybot.core.Agent</Super>
-<TimeChanged>67294,79444.426569763</TimeChanged>
-<TimeCreated>67294,79444.426569763</TimeCreated>
+<TimeChanged>67295,6359.926405007</TimeChanged>
+<TimeCreated>67295,6359.926405007</TimeCreated>
 
 <Method name="DaysOfTheWeekAgent">
 <Description>
@@ -30,8 +30,8 @@ Keywords: days of the week, weekend, weekday, holiday</Description>
 
 <Class name="easybot.bots.DatabaseAgent">
 <Super>easybot.core.Agent</Super>
-<TimeChanged>67294,83964.545468723</TimeChanged>
-<TimeCreated>67294,79444.428577112</TimeCreated>
+<TimeChanged>67295,6359.927362925</TimeChanged>
+<TimeCreated>67295,6359.927362925</TimeCreated>
 
 <Method name="ListDatabases">
 <Description>
@@ -50,8 +50,8 @@ Keywords: list databases, show databases</Description>
 
 <Class name="easybot.bots.EnsAgent">
 <Super>easybot.core.Agent</Super>
-<TimeChanged>67294,85581.440294194</TimeChanged>
-<TimeCreated>67294,79444.433133667</TimeCreated>
+<TimeChanged>67295,6359.931551067</TimeChanged>
+<TimeCreated>67295,6359.931551067</TimeCreated>
 
 <Method name="ListInterfaces">
 <Description>
@@ -122,8 +122,8 @@ Keywords: start production, enable production</Description>
 
 <Class name="easybot.bots.HelpAgent">
 <Super>easybot.core.Agent</Super>
-<TimeChanged>67295,1850.851090153</TimeChanged>
-<TimeCreated>67294,79444.437359586</TimeCreated>
+<TimeChanged>67295,6359.938954788</TimeChanged>
+<TimeCreated>67295,6359.938954788</TimeCreated>
 
 <Method name="ListAgents">
 <Description>
@@ -233,8 +233,8 @@ Keywords: help</Description>
 
 <Class name="easybot.bots.JournalAgent">
 <Super>easybot.core.Agent</Super>
-<TimeChanged>67294,85214.89785854</TimeChanged>
-<TimeCreated>67294,84085.152911955</TimeCreated>
+<TimeChanged>67295,6359.96008176</TimeChanged>
+<TimeCreated>67295,6359.96008176</TimeCreated>
 
 <Method name="ShowJournalInfo">
 <Description>
@@ -309,8 +309,8 @@ Keywords: list journals, show journals, journal files</Description>
 
 <Class name="easybot.bots.NamespaceAgent">
 <Super>easybot.core.Agent</Super>
-<TimeChanged>67294,83911.935239067</TimeChanged>
-<TimeCreated>67294,79444.454438786</TimeCreated>
+<TimeChanged>67295,6359.954298233</TimeChanged>
+<TimeCreated>67295,6359.954298233</TimeCreated>
 
 <Method name="ListNamespaces">
 <Description>
@@ -331,15 +331,15 @@ Keywords: list namespaces, show namespaces</Description>
 <Description>
 Base class used for auto-loading Agents/Bots</Description>
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,79444.459300125</TimeChanged>
-<TimeCreated>67294,79444.459300125</TimeCreated>
+<TimeChanged>67295,6359.958290578</TimeChanged>
+<TimeCreated>67295,6359.958290578</TimeCreated>
 </Class>
 
 
 <Class name="easybot.core.Choice">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,79444.469733032</TimeChanged>
-<TimeCreated>67294,79444.469733032</TimeCreated>
+<TimeChanged>67295,6359.964066947</TimeChanged>
+<TimeCreated>67295,6359.964066947</TimeCreated>
 
 <Property name="Display">
 <Type>%String</Type>
@@ -357,8 +357,8 @@ Base class used for auto-loading Agents/Bots</Description>
 
 <Class name="easybot.core.Embedder">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,79444.463633278</TimeChanged>
-<TimeCreated>67294,79444.463633278</TimeCreated>
+<TimeChanged>67295,6359.978578696</TimeChanged>
+<TimeCreated>67295,6359.978578696</TimeCreated>
 
 <Property name="model">
 <Type>%ObjectHandle</Type>
@@ -422,8 +422,8 @@ Base class used for auto-loading Agents/Bots</Description>
 
 <Class name="easybot.core.Loader">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,79444.480298735</TimeChanged>
-<TimeCreated>67294,79444.480298735</TimeCreated>
+<TimeChanged>67295,6359.983100494</TimeChanged>
+<TimeCreated>67295,6359.983100494</TimeCreated>
 
 <Method name="Load">
 <ClassMethod>1</ClassMethod>
@@ -562,8 +562,8 @@ Base class used for auto-loading Agents/Bots</Description>
 
 <Class name="easybot.core.Prompt">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,79444.484911751</TimeChanged>
-<TimeCreated>67294,79444.484911751</TimeCreated>
+<TimeChanged>67295,6359.983311463</TimeChanged>
+<TimeCreated>67295,6359.983311463</TimeCreated>
 
 <Property name="UserValue">
 <Type>%String</Type>
@@ -594,8 +594,8 @@ Base class used for auto-loading Agents/Bots</Description>
 
 <Class name="easybot.core.PromptTransformer">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,79444.500583344</TimeChanged>
-<TimeCreated>67294,79444.500583344</TimeCreated>
+<TimeChanged>67295,6359.989001998</TimeChanged>
+<TimeCreated>67295,6359.989001998</TimeCreated>
 
 <Method name="Handle">
 <ClassMethod>1</ClassMethod>
@@ -672,8 +672,8 @@ Base class used for auto-loading Agents/Bots</Description>
 
 <Class name="easybot.core.Session">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,79444.499895516</TimeChanged>
-<TimeCreated>67294,79444.499895516</TimeCreated>
+<TimeChanged>67295,6360.011462049</TimeChanged>
+<TimeCreated>67295,6360.011462049</TimeCreated>
 
 <Property name="PromptTransformerSpec">
 <Description>
@@ -912,8 +912,8 @@ For example, choices.</Description>
 
 <Class name="easybot.core.Shell">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67295,5648.770397143</TimeChanged>
-<TimeCreated>67294,79444.506444864</TimeCreated>
+<TimeChanged>67295,6660.397532652</TimeChanged>
+<TimeCreated>67295,6360.012728106</TimeCreated>
 
 <Property name="UserPS1">
 <Type>%String</Type>
@@ -989,6 +989,13 @@ For example, choices.</Description>
 
   // Turn off terminal history
   use 0:(:"-R")
+
+  // Do we need to autoload?
+  do ##class(TargetStore).ListAgents(.results)
+  if results.Count() = 0 {
+    w "No agents found.  Attempting to load.",!
+    do ##class(easybot.core.Loader).Load()
+  }
 
   // START REPL Loop #########################################################################
   while 1 {
@@ -1246,8 +1253,8 @@ For example, choices.</Description>
 
 <Class name="easybot.core.ShellResponse">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67295,3832.629533685</TimeChanged>
-<TimeCreated>67294,79444.50827833</TimeCreated>
+<TimeChanged>67295,6360.011641838</TimeChanged>
+<TimeCreated>67295,6360.011641838</TimeCreated>
 
 <Property name="lines">
 <Description>
@@ -1497,8 +1504,8 @@ spec format.</Description>
 
 <Class name="easybot.core.Target">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,79444.526628231</TimeChanged>
-<TimeCreated>67294,79444.526628231</TimeCreated>
+<TimeChanged>67295,6360.017453579</TimeChanged>
+<TimeCreated>67295,6360.017453579</TimeCreated>
 
 <Property name="ID">
 <Type>%Library.String</Type>
@@ -1537,8 +1544,8 @@ spec format.</Description>
 
 <Class name="easybot.core.TargetStore">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67295,1104.143952063</TimeChanged>
-<TimeCreated>67294,79444.526450543</TimeCreated>
+<TimeChanged>67295,6360.040719708</TimeChanged>
+<TimeCreated>67295,6360.040719708</TimeCreated>
 
 <Method name="CreateTable">
 <ClassMethod>1</ClassMethod>
@@ -1769,8 +1776,8 @@ spec format.</Description>
 <SqlRowIdPrivate>1</SqlRowIdPrivate>
 <SqlTableName>Targets</SqlTableName>
 <Super>%Persistent</Super>
-<TimeChanged>67295,1736.364659643</TimeChanged>
-<TimeCreated>67295,1730.697939679</TimeCreated>
+<TimeChanged>67295,6718.578553736</TimeChanged>
+<TimeCreated>67295,6712.407301678</TimeCreated>
 
 <Property name="ID">
 <Type>%Library.String</Type>

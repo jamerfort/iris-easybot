@@ -56,6 +56,13 @@ Method Start()
   // Turn off terminal history
   use 0:(:"-R")
 
+  // Do we need to autoload?
+  do ##class(TargetStore).ListAgents(.results)
+  if results.Count() = 0 {
+    w "No agents found.  Attempting to load.",!
+    do ##class(easybot.core.Loader).Load()
+  }
+
   // START REPL Loop #########################################################################
   while 1 {
     if session.CurrentGroup '= "" {
