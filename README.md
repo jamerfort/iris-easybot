@@ -37,6 +37,12 @@ If you prefer loading `easybot.Export.xml` from an IRIS terminal:
 USER>do $system.OBJ.Load("/path/to/easybot.Export.xml", "cuk")
 ```
 
+You will also need the Python `fastembed` module installed:
+
+```bash
+pip install fastembed
+```
+
 ### Option 2: Docker
 
 If you prefer, you can load the library with docker, run the built-in tests, and experiment with the `easybot` classes.
@@ -123,7 +129,7 @@ To customize EasyBot:
   /// Display: EasyBot uses 'Display' whenever it needs to display this fuction.
   /// Keywords: The 'Keywords' lines are used to index/embed this method.
   /// Keywords: 'Keywords' are used by EasyBot to find the user's desired action.
-  /// Keywords: You can havkje multiple 'Keywords' lines. They will be joined together to index/embed.
+  /// Keywords: You can have multiple 'Keywords' lines. They will be joined together to index/embed.
   Method MethodName(ByRef prompt As easybot.core.Prompt, ByRef response As easybot.core.ShellResponse)
   ```
 
