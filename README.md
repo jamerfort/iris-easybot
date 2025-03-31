@@ -23,8 +23,7 @@ This library was originally created/published for the [InterSystems AI Programmi
 
 There are several methods for installing this library:
 1. Import classes directly into IRIS
-2. Install the IPM/ZPM package 
-3. Docker
+2. Docker
 
 ### Option 1: Import Classes Directly into IRIS
 
@@ -37,20 +36,8 @@ If you prefer loading `easybot.Export.xml` from an IRIS terminal:
 ```cls
 USER>do $system.OBJ.Load("/path/to/easybot.Export.xml", "cuk")
 ```
-### Option 2: Install the IPM/ZPM package 
 
-Once package is approved, use `zpm` install the `easybot` package:
-```cls
-USER>zpm
-
-=============================================================================
-|| Welcome to the Package Manager Shell (ZPM). version 0.7.4               ||
-|| Enter q/quit to exit the shell. Enter ?/help to view available commands ||
-|| Current registry https://pm.community.intersystems.com                  ||
-=============================================================================
-zpm:USER>install easybot
-```
-### Option 3: Docker
+### Option 2: Docker
 
 If you prefer, you can load the library with docker, run the built-in tests, and experiment with the `easybot` classes.
 
