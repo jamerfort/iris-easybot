@@ -223,26 +223,35 @@ Here are a list of current-planned features that should be easy to implement:
 
 ## Built-in Agents
 - easybot.bots.CustomAgent
-  - List the days of the week
+ - List the days of the week
 
 - easybot.bots.DatabaseAgent
-  - Databases Menu
-  - Filter Databases
-  - Database Help
-  - List Databases
+ - List Databases
 
 - easybot.bots.EnsAgent
-  - List Interfaces
-  - Start Interface
-  - Start Production
-  - Stop Interface
-  - Stop Production
+ - List Interfaces
+ - Start Interface
+ - Start Production
+ - Stop Interface
+ - Stop Production
 
 - easybot.bots.HelpAgent
-  - Explain...
-  - List Bots, Agents, and Commands
+ - EasyBot Help
+ - List Bots/Agents, and Menus
+ - List Bots/Agents
+
+- easybot.bots.JournalAgent
+ - List Journal Files
+ - Show Journal Settings
 
 - easybot.bots.NamespaceAgent
-  - Filter Namespaces
-  - List Namespaces
-  - Namespaces Menu
+ - List Namespaces
+
+## Example Prompts
+- help
+- list databases
+- list namespaces
+- list interfaces
+- stop interface
+- list journal files
+- journal settings
