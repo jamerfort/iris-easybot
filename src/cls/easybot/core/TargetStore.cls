@@ -131,4 +131,57 @@ ClassMethod handleQueryResults(ByRef rset As %SQL.StatementResult, ByRef results
   return $$$OK
 }
 
+ClassMethod ListAgents(ByRef results As %ListOfDataTypes) As %Status
+{
+  set results = ##class(%ListOfDataTypes).%New()
+
+  set query = ""
+    _"SELECT Distinct"
+    _" $PIECE(Spec,':',1) As Agent"
+    _" FROM easybot_store.Targets"
+    _" ORDER BY Agent"
+  
+  set statement = ##class(%SQL.Statement).%New()
+  set sc = statement.%Prepare(query)
+
+  if $$$ISERR(sc) {
+    return sc
+  }
+
+  set rset = statement.%Execute()
+
+  while rset.%Next() {
+    do results.Insert(rset.%Get("Agent"))
+  }
+
+  return $$$OK
+}
+
+ClassMethod ListItemsByAgent(agent As %String, ByRef results As %ListOfDataTypes) As %Status
+{
+  set results = ##class(%ListOfDataTypes).%New()
+
+  set query = ""
+    _"SELECT "
+    _" Display"
+    _" FROM easybot_store.Targets"
+    _" WHERE Spec LIKE ?"
+    _" ORDER BY Display"
+  
+  set statement = ##class(%SQL.Statement).%New()
+  set sc = statement.%Prepare(query)
+
+  if $$$ISERR(sc) {
+    return sc
+  }
+
+  set rset = statement.%Execute(agent_":%")
+
+  while rset.%Next() {
+    do results.Insert(rset.%Get("Display"))
+  }
+
+  return $$$OK
+}
+
 }

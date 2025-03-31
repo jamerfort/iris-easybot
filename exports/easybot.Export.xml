@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Export generator="IRIS" version="26" zv="IRIS for UNIX (Ubuntu Server LTS for x86-64 Containers) 2025.1 (Build 223U)" ts="2025-03-30 20:58:39">
+<Export generator="IRIS" version="26" zv="IRIS for UNIX (Ubuntu Server LTS for x86-64 Containers) 2025.1 (Build 223U)" ts="2025-03-31 01:35:26">
 <Class name="easybot.bots.CustomAgent">
 <Super>easybot.core.Agent</Super>
-<TimeChanged>67294,73480.096673053</TimeChanged>
-<TimeCreated>67294,73408.325912515</TimeCreated>
+<TimeChanged>67294,79444.426569763</TimeChanged>
+<TimeCreated>67294,79444.426569763</TimeCreated>
 
 <Method name="DaysOfTheWeekAgent">
 <Description>
@@ -30,60 +30,19 @@ Keywords: days of the week, weekend, weekday, holiday</Description>
 
 <Class name="easybot.bots.DatabaseAgent">
 <Super>easybot.core.Agent</Super>
-<TimeChanged>67294,25637.432694576</TimeChanged>
-<TimeCreated>67294,10455.199009426</TimeCreated>
-
-<Method name="DatabasesGroup">
-<Description>
-Display: Databases Menu
-Keywords: databases, databases menu, databases group</Description>
-<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
-<Implementation><![CDATA[
-  do response.EnterGroup("Databases")
-  do response.Respond("How can I help you with databases?")
-]]></Implementation>
-</Method>
-
-<Method name="HelpDatabases">
-<Description>
-Display: Database Help
-Keywords: help databases, explain databases
-Group: Databases</Description>
-<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
-<Implementation><![CDATA[
-  do response.Respond("I can help you perform the following database tasks:")
-  do response.Respond("")
-  do response.ListItem("List Databases")
-  do response.ListItem("Filter Databases")
-]]></Implementation>
-</Method>
+<TimeChanged>67294,83964.545468723</TimeChanged>
+<TimeCreated>67294,79444.428577112</TimeCreated>
 
 <Method name="ListDatabases">
 <Description>
 Display: List Databases
-Keywords: list databases, show databases
-Group: Databases</Description>
+Keywords: list databases, show databases</Description>
 <FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
 <Implementation><![CDATA[
   do response.Respond("Here are the databases I found:")
   do response.Respond("")
-  do response.ListItem("DB1")
-  do response.ListItem("DB2")
-  do response.ListItem("DB3")
-]]></Implementation>
-</Method>
 
-<Method name="FilterDatabases">
-<Description>
-Display: Filter Databases
-Keywords: filter databases, select databases, filtered list of databases, show start with, show ends with, show contains, show matches
-Group: Databases</Description>
-<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
-<Implementation><![CDATA[
-  do response.Respond("Here are the filtered databases:")
-  do response.Respond("")
-  do response.ListItem("FilteredDB1")
-  do response.ListItem("FilteredDB3")
+  do response.DisplayClassQuery("%SYS", "Config.Databases", "List", "Name,Directory")
 ]]></Implementation>
 </Method>
 </Class>
@@ -91,8 +50,8 @@ Group: Databases</Description>
 
 <Class name="easybot.bots.EnsAgent">
 <Super>easybot.core.Agent</Super>
-<TimeChanged>67294,25827.080151872</TimeChanged>
-<TimeCreated>67294,23532.989270281</TimeCreated>
+<TimeChanged>67294,85581.440294194</TimeChanged>
+<TimeCreated>67294,79444.433133667</TimeCreated>
 
 <Method name="ListInterfaces">
 <Description>
@@ -102,27 +61,8 @@ Keywords: list interfaces, list components, show components, show interfaces</De
 <Implementation><![CDATA[
   do response.Respond("Here are the interfaces I found:")
   do response.Respond("")
-  do response.ListItem("Interface1")
-  do response.ListItem("Interface2")
-  do response.ListItem("Interface3")
-  do response.ListItem("Interface1")
-  do response.ListItem("Interface2")
-  do response.ListItem("Interface1")
-  do response.ListItem("Interface1")
-  do response.ListItem("Interface2")
-  do response.ListItem("Interface1")
-  do response.ListItem("Interface1")
-  do response.ListItem("Interface1")
-  do response.ListItem("Interface2")
-  do response.ListItem("Interface3")
-  do response.ListItem("Interface2")
-  do response.ListItem("Interface3")
-  do response.ListItem("Interface2")
-  do response.ListItem("Interface3")
-  do response.ListItem("Interface3")
-  do response.ListItem("Interface2")
-  do response.ListItem("Interface3")
-  do response.ListItem("Interface3")
+
+  do response.DisplayClassQuery($NAMESPACE, "Ens.Config.Production", "EnumerateConfigItemNames", "ConfigName,Enabled")
 ]]></Implementation>
 </Method>
 
@@ -131,7 +71,11 @@ Keywords: list interfaces, list components, show components, show interfaces</De
 Display: Stop Interface
 Keywords: stop interface, disable interface</Description>
 <FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
-<Implementation><![CDATA[  do response.Respond("Which interface would you like to stop?")
+<Implementation><![CDATA[
+  do response.Warning("I can't do this yet, but let's pretend...")
+  do response.Println("")
+
+  do response.Respond("Stopping Interface XYZ...")
 ]]></Implementation>
 </Method>
 
@@ -140,7 +84,11 @@ Keywords: stop interface, disable interface</Description>
 Display: Start Interface
 Keywords: start interface, enable interface</Description>
 <FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
-<Implementation><![CDATA[  do response.Respond("Which interface would you like to start?")
+<Implementation><![CDATA[
+  do response.Warning("I can't do this yet, but let's pretend...")
+  do response.Println("")
+
+  do response.Respond("Starting Interface XYZ...")
 ]]></Implementation>
 </Method>
 
@@ -149,7 +97,11 @@ Keywords: start interface, enable interface</Description>
 Display: Stop Production
 Keywords: stop production, disable production</Description>
 <FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
-<Implementation><![CDATA[  do response.Respond("Which production would you like to stop?")
+<Implementation><![CDATA[
+  do response.Warning("I can't do this yet, but let's pretend...")
+  do response.Println("")
+
+  do response.Respond("Stopping Production XYZ...")
 ]]></Implementation>
 </Method>
 
@@ -158,7 +110,11 @@ Keywords: stop production, disable production</Description>
 Display: Start Production
 Keywords: start production, enable production</Description>
 <FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
-<Implementation><![CDATA[  do response.Respond("Which production would you like to start?")
+<Implementation><![CDATA[
+  do response.Warning("I can't do this yet, but let's pretend...")
+  do response.Println("")
+
+  do response.Respond("Starting Production XYZ...")
 ]]></Implementation>
 </Method>
 </Class>
@@ -166,28 +122,72 @@ Keywords: start production, enable production</Description>
 
 <Class name="easybot.bots.HelpAgent">
 <Super>easybot.core.Agent</Super>
-<TimeChanged>67294,25657.170369433</TimeChanged>
-<TimeCreated>67294,24677.658383519</TimeCreated>
+<TimeChanged>67295,1850.851090153</TimeChanged>
+<TimeCreated>67294,79444.437359586</TimeCreated>
 
 <Method name="ListAgents">
 <Description>
-Display: List Bots, Agents, and Commands
-Keywords: help bots, help agents, list bots, list agents, show bots, show agents</Description>
+Display: List Bots/Agents
+Keywords: list bots, list agents</Description>
 <FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
 <Implementation><![CDATA[
   do response.Respond("Here are the Agents currently loaded:")
   do response.Respond("")
 
-  do response.ListItem("Agent1")
-  do response.ListItem("Agent2")
-  do response.ListItem("Agent3")
+  set status = ##class(easybot.core.TargetStore).ListAgents(.agents)
+
+  if $$$ISERR(status) {
+    do response.Error("Sorry. Unable to find the information", status)
+    do response.Error("Try again...")
+    return
+  }
+
+  for i=1:1:agents.Count() {
+    do response.ListItem(agents.GetAt(i))
+  }
+]]></Implementation>
+</Method>
+
+<Method name="ListAgentDetails">
+<Description>
+Display: List Bots/Agents, and Menus
+Keywords: menus, bot menus, agent menus</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  do response.Respond("Here are the Agents currently loaded:")
+  do response.Respond("")
+
+  set status = ##class(easybot.core.TargetStore).ListAgents(.agents)
+
+  if $$$ISERR(status) {
+    do response.Error("Sorry. Unable to find the information", status)
+    do response.Error("Try again...")
+    return
+  }
+
+  for i=1:1:agents.Count() {
+    set agent = agents.GetAt(i)
+    do response.Respond(agent)
+
+    set status = ##class(easybot.core.TargetStore).ListItemsByAgent(agent, .menus)
+    if $$$ISERR(status) {
+      do response.Error("Unable to find information for "_agent, status)
+      continue
+    }
+
+    for m=1:1:menus.Count() {
+      do response.ListItem(menus.GetAt(m))
+    }
+
+    do response.Respond("")
+  }
 ]]></Implementation>
 </Method>
 
 <Method name="Help">
 <Description>
-Display: Explain...
-Keywords: I don't understand, I'm confused</Description>
+Display: EasyBot Help
+Keywords: help</Description>
 <FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
 <Implementation><![CDATA[
   do response.Respond("Let me help explain.")
@@ -195,7 +195,113 @@ Keywords: I don't understand, I'm confused</Description>
   do response.Respond("I'm easily extensible with ObjectScript.")
   do response.Respond("")
 
-  do ..ListAgents(.prompt, .response)
+  do response.LineBreak()
+  do ..ListAgentDetails(.prompt, .response)
+
+  do response.LineBreak()
+  do response.Respond("")
+  do ..ShellCommands(.prompt, .response)
+]]></Implementation>
+</Method>
+
+<Method name="ShellCommands">
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  do response.Respond("Here are some EasyBot shell commands:")
+  do response.Respond("")
+
+  do response.ListItem("clear")
+  do response.Respond("")
+
+  do response.ListItem("exit")
+  do response.ListItem("halt")
+  do response.ListItem("h")
+  do response.ListItem("q")
+  do response.ListItem("quit")
+  do response.Respond("")
+
+  do response.ListItem("load")
+  do response.ListItem("reset")
+  do response.Respond("")
+
+  do response.ListItem("debug")
+  do response.ListItem("nodebug")
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="easybot.bots.JournalAgent">
+<Super>easybot.core.Agent</Super>
+<TimeChanged>67294,85214.89785854</TimeChanged>
+<TimeCreated>67294,84085.152911955</TimeCreated>
+
+<Method name="ShowJournalInfo">
+<Description>
+Display: Show Journal Settings
+Keywords: journal information, journal settings</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+  do response.Respond("Here are the Journal Settings for this instance...")
+  do response.Respond("")
+
+  set origNS = $NAMESPACE
+  zn "%SYS"
+
+  set status = ##class(Config.Journal).Get(.properties)
+
+  zn origNS
+
+  if $$$ISERR(status) {
+    do response.Error("Sorry. Unable to find the information", status)
+    do response.Error("Try again...")
+    return
+  }
+
+  do response.TableHeader($LB("Setting", "Value"))
+
+  set setting = ""
+  set setting = $ORDER(properties(setting))
+
+  while setting '= "" {
+    set value = properties(setting)
+    do response.TableRow($LB(setting, value))
+
+    set setting = $ORDER(properties(setting))
+  }
+]]></Implementation>
+</Method>
+
+<Method name="ListJournals">
+<Description>
+Display: List Journal Files
+Keywords: list journals, show journals, journal files</Description>
+<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
+<Implementation><![CDATA[
+
+  set origNS = $NAMESPACE
+  zn "%SYS"
+
+  set status = ##class(Config.Journal).Get(.properties)
+
+  zn origNS
+
+  if $$$ISERR(status) {
+    do response.Error("Sorry. Unable to find the information", status)
+    do response.Error("Try again...")
+    return
+  }
+
+  do response.Respond("Here are the Journals I found...")
+  do response.Println("")
+  do response.DisplayClassQuery($NAMESPACE, "%File", "FileSet", "Name,Size,DateModified", properties("CurrentDirectory"), "*")
+  do response.Println("")
+
+  if properties("CurrentDirectory") '= properties("AlternateDirectory") {
+    do response.Respond("...and the Alternate Journals I found...")
+    do response.Println("")
+    do response.DisplayClassQuery($NAMESPACE, "%File", "FileSet", "Name,Size,DateModified", properties("AlternateDirectory"), "*")
+  }
 ]]></Implementation>
 </Method>
 </Class>
@@ -203,19 +309,8 @@ Keywords: I don't understand, I'm confused</Description>
 
 <Class name="easybot.bots.NamespaceAgent">
 <Super>easybot.core.Agent</Super>
-<TimeChanged>67294,25602.471189895</TimeChanged>
-<TimeCreated>67294,8017.482109373</TimeCreated>
-
-<Method name="NamespacesGroup">
-<Description>
-Display: Namespaces Menu
-Keywords: namespaces, namespaces menu, namespaces group</Description>
-<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
-<Implementation><![CDATA[
-  do response.EnterGroup("Namespaces")
-  do response.Respond("How can I help you with namespaces?")
-]]></Implementation>
-</Method>
+<TimeChanged>67294,83911.935239067</TimeChanged>
+<TimeCreated>67294,79444.454438786</TimeCreated>
 
 <Method name="ListNamespaces">
 <Description>
@@ -225,22 +320,8 @@ Keywords: list namespaces, show namespaces</Description>
 <Implementation><![CDATA[
   do response.Respond("Here are the namespaces I found:")
   do response.Respond("")
-  do response.ListItem("Namespace1")
-  do response.ListItem("Namespace2")
-  do response.ListItem("Namespace3")
-]]></Implementation>
-</Method>
 
-<Method name="FilterNamespaces">
-<Description>
-Display: Filter Namespaces
-Keywords: filter namespaces, select namespaces, filtered list of namespaces</Description>
-<FormalSpec><![CDATA[&prompt:easybot.core.Prompt,&response:easybot.core.ShellResponse]]></FormalSpec>
-<Implementation><![CDATA[
-  do response.Respond("Here are the filtered namespaces:")
-  do response.Respond("")
-  do response.ListItem("FilteredNS1")
-  do response.ListItem("FilteredNS3")
+  do response.DisplayClassQuery("%SYS", "Config.Namespaces", "List", "Namespace,Globals,Routines")
 ]]></Implementation>
 </Method>
 </Class>
@@ -250,15 +331,15 @@ Keywords: filter namespaces, select namespaces, filtered list of namespaces</Des
 <Description>
 Base class used for auto-loading Agents/Bots</Description>
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,8035.371028221</TimeChanged>
-<TimeCreated>67294,8025.072141275</TimeCreated>
+<TimeChanged>67294,79444.459300125</TimeChanged>
+<TimeCreated>67294,79444.459300125</TimeCreated>
 </Class>
 
 
 <Class name="easybot.core.Choice">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,18319.931676852</TimeChanged>
-<TimeCreated>67294,18261.569851518</TimeCreated>
+<TimeChanged>67294,79444.469733032</TimeChanged>
+<TimeCreated>67294,79444.469733032</TimeCreated>
 
 <Property name="Display">
 <Type>%String</Type>
@@ -276,8 +357,8 @@ Base class used for auto-loading Agents/Bots</Description>
 
 <Class name="easybot.core.Embedder">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,9634.309689691</TimeChanged>
-<TimeCreated>67294,2877.105708944</TimeCreated>
+<TimeChanged>67294,79444.463633278</TimeChanged>
+<TimeCreated>67294,79444.463633278</TimeCreated>
 
 <Property name="model">
 <Type>%ObjectHandle</Type>
@@ -341,8 +422,8 @@ Base class used for auto-loading Agents/Bots</Description>
 
 <Class name="easybot.core.Loader">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,74997.520306727</TimeChanged>
-<TimeCreated>67294,5725.702049179</TimeCreated>
+<TimeChanged>67294,79444.480298735</TimeChanged>
+<TimeCreated>67294,79444.480298735</TimeCreated>
 
 <Method name="Load">
 <ClassMethod>1</ClassMethod>
@@ -481,8 +562,8 @@ Base class used for auto-loading Agents/Bots</Description>
 
 <Class name="easybot.core.Prompt">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,15234.570356774</TimeChanged>
-<TimeCreated>67293,61493.379351257</TimeCreated>
+<TimeChanged>67294,79444.484911751</TimeChanged>
+<TimeCreated>67294,79444.484911751</TimeCreated>
 
 <Property name="UserValue">
 <Type>%String</Type>
@@ -513,8 +594,8 @@ Base class used for auto-loading Agents/Bots</Description>
 
 <Class name="easybot.core.PromptTransformer">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,13449.412456518</TimeChanged>
-<TimeCreated>67293,61343.151122336</TimeCreated>
+<TimeChanged>67294,79444.500583344</TimeChanged>
+<TimeCreated>67294,79444.500583344</TimeCreated>
 
 <Method name="Handle">
 <ClassMethod>1</ClassMethod>
@@ -591,8 +672,8 @@ Base class used for auto-loading Agents/Bots</Description>
 
 <Class name="easybot.core.Session">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,22884.074253403</TimeChanged>
-<TimeCreated>67293,59947.127693668</TimeCreated>
+<TimeChanged>67294,79444.499895516</TimeChanged>
+<TimeCreated>67294,79444.499895516</TimeCreated>
 
 <Property name="PromptTransformerSpec">
 <Description>
@@ -831,8 +912,8 @@ For example, choices.</Description>
 
 <Class name="easybot.core.Shell">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,25762.102040495</TimeChanged>
-<TimeCreated>67293,59796.051662966</TimeCreated>
+<TimeChanged>67295,5648.770397143</TimeChanged>
+<TimeCreated>67294,79444.506444864</TimeCreated>
 
 <Property name="UserPS1">
 <Type>%String</Type>
@@ -850,7 +931,15 @@ For example, choices.</Description>
 <Type>%String</Type>
 </Property>
 
+<Property name="WarningPS1">
+<Type>%String</Type>
+</Property>
+
 <Property name="ErrorPS1">
+<Type>%String</Type>
+</Property>
+
+<Property name="UnknownPS1">
 <Type>%String</Type>
 </Property>
 
@@ -867,10 +956,13 @@ For example, choices.</Description>
 <Implementation><![CDATA[
   set shell = ##class(Shell).%New()
   set shell.UserPS1         = ">>> "
+  //set shell.ResponsePS1     = "  ð¤| "
   set shell.ResponsePS1     = "    | "
   set shell.ListItemPS1     = "    | - "
   set shell.NumberedItemPS1 = "    | # "
-  set shell.ErrorPS1        = "!!! "
+  set shell.WarningPS1      = "   !| "
+  set shell.ErrorPS1        = " !!!| "
+  set shell.UnknownPS1      = "??? | "
   set shell.DebugPS1        = "##### "
   set shell.ChoicePS1       = "      #. "
 
@@ -974,6 +1066,8 @@ For example, choices.</Description>
   set choices = 0
   set numitems = 0
 
+  set tableWidths = ##class(%ListOfDataTypes).%New()
+
   for i=1:1:count {
     set line = lines.GetAt(i)
 
@@ -986,6 +1080,12 @@ For example, choices.</Description>
     } elseif type = "RESPONSE" {
       write ..ResponsePS1_value,!
 
+    } elseif type = "WARNING" {
+      write ..WarningPS1_value,!
+
+    } elseif type = "ERROR" {
+      write ..ErrorPS1_value,!
+
     } elseif type = "LISTITEM" {
       write ..ListItemPS1_value,!
 
@@ -993,6 +1093,26 @@ For example, choices.</Description>
       set numitems = numitems + 1
       set ps1 = $REPLACE(..NumberedItemPS1, "#", numitems)
       write ps1_value,!
+
+    } elseif type = "TABLEHEADER" {
+      if tableWidths.Count() = 0 {
+        set tableWidths = ..GetTableWidths(.lines, i)
+      }
+
+      set value = ..FormatTableRow(value, .tableWidths)
+      write value,!
+      write "--------------------------------------------------------------------------------",!
+
+    } elseif type = "TABLEROW" {
+      if tableWidths.Count() = 0 {
+        set tableWidths = ..GetTableWidths(.lines, i)
+      }
+
+      set value = ..FormatTableRow(value, .tableWidths)
+      write value,!
+
+    } elseif type = "LINEBREAK" {
+      write ..ResponsePS1_"--------------------------------------------------------------------------------",!
 
     } elseif type = "DEBUG" {
       set rightSide = $LISTGET(line,3)
@@ -1009,6 +1129,8 @@ For example, choices.</Description>
       set ps1 = $REPLACE(..ChoicePS1, "#", choices)
       write ps1_value,!
 
+    } else {
+      write ..UnknownPS1_value,!
     }
 
     // Sleep to simulate typing
@@ -1016,6 +1138,68 @@ For example, choices.</Description>
       hang lineDelay
     }
   }
+]]></Implementation>
+</Method>
+
+<Method name="GetTableWidths">
+<FormalSpec><![CDATA[&lines:%String,startLine:%Numeric=1]]></FormalSpec>
+<ReturnType>%ListOfDataTypes</ReturnType>
+<Implementation><![CDATA[
+  set widths = ##class(%ListOfDataTypes).%New()
+
+  for i=startLine:1:lines.Count() {
+    set line = lines.GetAt(i)
+
+    set type = $LISTGET(line, 1)
+    set row = $LISTGET(line, 2)
+
+    if (type '= "TABLEHEADER") && (type '= "TABLEROW") {
+      // skip this row
+      continue
+    }
+
+    set numCols = $LISTLENGTH(row)
+
+    for c=1:1:(numCols-widths.Count()) {
+      do widths.Insert(0)
+    }
+
+    for c=1:1:numCols {
+      set w = $LENGTH($LISTGET(row, c))
+
+      if widths.Count() < c {
+        do widths.Insert(0)
+      }
+
+      if w > widths.GetAt(c) {
+        do widths.SetAt(w, c)
+      }
+    }
+  }
+
+  return widths
+]]></Implementation>
+</Method>
+
+<Method name="FormatTableRow">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[row:%String,&widths:%ListOfDataTypes]]></FormalSpec>
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+  set rslt = ""
+
+  for c=1:1:$LISTLENGTH(row) {
+    set col = $LISTGET(row, c)
+    set w = widths.GetAt(c)
+
+    for i=1:1:w-$LENGTH(col) {
+      set col = col_" "
+    }
+
+    set rslt = rslt_" | "_col
+  }
+
+  return rslt
 ]]></Implementation>
 </Method>
 
@@ -1062,8 +1246,8 @@ For example, choices.</Description>
 
 <Class name="easybot.core.ShellResponse">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,25311.379299248</TimeChanged>
-<TimeCreated>67293,61047.370921215</TimeCreated>
+<TimeChanged>67295,3832.629533685</TimeChanged>
+<TimeCreated>67294,79444.50827833</TimeCreated>
 
 <Property name="lines">
 <Description>
@@ -1145,6 +1329,34 @@ Use Println(line) for result output.</Description>
 ]]></Implementation>
 </Method>
 
+<Method name="Error">
+<Description>
+Add an error line to the output.
+Use this for responding with bad news.</Description>
+<FormalSpec>line:%String,status:%Status=""</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+  set sc = ..lines.Insert($LB("ERROR", line))
+
+  if status '= "" {
+    set errLine = $SYSTEM.Status.GetErrorText(status)
+    do ..lines.Insert($LB("ERROR", errLine))
+  }
+
+  return sc
+]]></Implementation>
+</Method>
+
+<Method name="Warning">
+<Description>
+Add a warning line to the output.
+Use this for responding with some caution.</Description>
+<FormalSpec>line:%String</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[  return ..lines.Insert($LB("WARNING", line))
+]]></Implementation>
+</Method>
+
 <Method name="ListItem">
 <Description>
 Add a list item line to the output.</Description>
@@ -1160,6 +1372,32 @@ Add a numbered list item line to the output.</Description>
 <FormalSpec>line:%String</FormalSpec>
 <ReturnType>%Status</ReturnType>
 <Implementation><![CDATA[  return ..lines.Insert($LB("NUMBEREDITEM", line))
+]]></Implementation>
+</Method>
+
+<Method name="TableHeader">
+<Description>
+Add a table header to the output</Description>
+<FormalSpec>line:%String</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[  return ..lines.Insert($LB("TABLEHEADER", line))
+]]></Implementation>
+</Method>
+
+<Method name="TableRow">
+<Description>
+Add a table row to the output</Description>
+<FormalSpec>line:%String</FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[  return ..lines.Insert($LB("TABLEROW", line))
+]]></Implementation>
+</Method>
+
+<Method name="LineBreak">
+<Description>
+Add a line break</Description>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[  return ..lines.Insert($LB("LINEBREAK", "---------"))
 ]]></Implementation>
 </Method>
 
@@ -1212,13 +1450,55 @@ spec format.</Description>
 <Implementation><![CDATA[  set ..currentGroup = group
 ]]></Implementation>
 </Method>
+
+<Method name="DisplayClassQuery">
+<FormalSpec>namespace:%String,className:%String,queryName:%String,fieldList:%String="",Args...</FormalSpec>
+<Implementation><![CDATA[
+  set fieldList = $REPLACE(fieldList, ";", ",")
+  set fieldList = $REPLACE(fieldList, ":", ",")
+  set fieldList = $REPLACE(fieldList, " ", ",")
+  set fieldList = $REPLACE(fieldList, "|", ",")
+  set fields = $LISTFROMSTRING(fieldList, ",")
+  set numFields = $LISTLENGTH(fields)
+
+  set origNS = $NAMESPACE
+  zn namespace
+
+  set statement = ##class(%SQL.Statement).%New()
+  set status = statement.%PrepareClassQuery(className, queryName)
+  if $$$ISERR(status) {
+    do ..Error("Sorry. Unable to run class query.", status)
+    do ..Error("Try again...")
+    return
+  }
+
+  set rset = statement.%Execute(Args...)
+
+  do ..TableHeader(fields)
+
+  while rset.%Next() {
+    set line = ""
+    for i=1:1:numFields {
+      set field = $LISTGET(fields, i)
+      set field = $ZSTRIP(field, "<>W")
+
+      set $LIST(line, *+1) = rset.%Get(field)
+    }
+
+    do ..TableRow(line)
+  }
+
+  kill rset
+  zn origNS
+]]></Implementation>
+</Method>
 </Class>
 
 
 <Class name="easybot.core.Target">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,9100.793253866</TimeChanged>
-<TimeCreated>67294,1548.335986553</TimeCreated>
+<TimeChanged>67294,79444.526628231</TimeChanged>
+<TimeCreated>67294,79444.526628231</TimeCreated>
 
 <Property name="ID">
 <Type>%Library.String</Type>
@@ -1257,8 +1537,8 @@ spec format.</Description>
 
 <Class name="easybot.core.TargetStore">
 <Super>%RegisteredObject</Super>
-<TimeChanged>67294,21534.092423806</TimeChanged>
-<TimeCreated>67293,84004.027400832</TimeCreated>
+<TimeChanged>67295,1104.143952063</TimeChanged>
+<TimeCreated>67294,79444.526450543</TimeCreated>
 
 <Method name="CreateTable">
 <ClassMethod>1</ClassMethod>
@@ -1414,6 +1694,67 @@ spec format.</Description>
   return $$$OK
 ]]></Implementation>
 </Method>
+
+<Method name="ListAgents">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[&results:%ListOfDataTypes]]></FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+  set results = ##class(%ListOfDataTypes).%New()
+
+  set query = ""
+    _"SELECT Distinct"
+    _" $PIECE(Spec,':',1) As Agent"
+    _" FROM easybot_store.Targets"
+    _" ORDER BY Agent"
+  
+  set statement = ##class(%SQL.Statement).%New()
+  set sc = statement.%Prepare(query)
+
+  if $$$ISERR(sc) {
+    return sc
+  }
+
+  set rset = statement.%Execute()
+
+  while rset.%Next() {
+    do results.Insert(rset.%Get("Agent"))
+  }
+
+  return $$$OK
+]]></Implementation>
+</Method>
+
+<Method name="ListItemsByAgent">
+<ClassMethod>1</ClassMethod>
+<FormalSpec><![CDATA[agent:%String,&results:%ListOfDataTypes]]></FormalSpec>
+<ReturnType>%Status</ReturnType>
+<Implementation><![CDATA[
+  set results = ##class(%ListOfDataTypes).%New()
+
+  set query = ""
+    _"SELECT "
+    _" Display"
+    _" FROM easybot_store.Targets"
+    _" WHERE Spec LIKE ?"
+    _" ORDER BY Display"
+  
+  set statement = ##class(%SQL.Statement).%New()
+  set sc = statement.%Prepare(query)
+
+  if $$$ISERR(sc) {
+    return sc
+  }
+
+  set rset = statement.%Execute(agent_":%")
+
+  while rset.%Next() {
+    do results.Insert(rset.%Get("Display"))
+  }
+
+  return $$$OK
+]]></Implementation>
+</Method>
 </Class>
 
 
@@ -1428,8 +1769,8 @@ spec format.</Description>
 <SqlRowIdPrivate>1</SqlRowIdPrivate>
 <SqlTableName>Targets</SqlTableName>
 <Super>%Persistent</Super>
-<TimeChanged>67294,75020.749867664</TimeChanged>
-<TimeCreated>67294,75020.716674403</TimeCreated>
+<TimeChanged>67295,1736.364659643</TimeChanged>
+<TimeCreated>67295,1730.697939679</TimeCreated>
 
 <Property name="ID">
 <Type>%Library.String</Type>
@@ -1499,6 +1840,7 @@ Bitmap Extent Index auto-generated by DDL CREATE TABLE statement.  Do not edit t
 <IdLocation>^D1oJ.Bm7r.1</IdLocation>
 <IndexLocation>^D1oJ.Bm7r.I</IndexLocation>
 <StreamLocation>^D1oJ.Bm7r.S</StreamLocation>
+<ExtentSize>13</ExtentSize>
 <IdFunction>sequence</IdFunction>
 <ExtentLocation>^D1oJ.Bm7r</ExtentLocation>
 <Data name="TargetsDefaultData">
@@ -1528,6 +1870,40 @@ Bitmap Extent Index auto-generated by DDL CREATE TABLE statement.  Do not edit t
 <Value>Embedding</Value>
 </Value>
 </Data>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>3</AverageFieldSize>
+</Property>
+<Property name="Display">
+<Selectivity>7.6923%</Selectivity>
+<AverageFieldSize>19.15</AverageFieldSize>
+</Property>
+<Property name="Embedding">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>8516</AverageFieldSize>
+</Property>
+<Property name="ID">
+<Selectivity>7.6923%</Selectivity>
+<AverageFieldSize>39.15</AverageFieldSize>
+</Property>
+<Property name="Keywords">
+<Selectivity>7.6923%</Selectivity>
+</Property>
+<Property name="Spec">
+<Selectivity>7.6923%</Selectivity>
+<AverageFieldSize>39.15</AverageFieldSize>
+</Property>
+<Property name="Type">
+<Selectivity>0.0001%</Selectivity>
+<OutlierSelectivity>.999999:"Agent"</OutlierSelectivity>
+<AverageFieldSize>7</AverageFieldSize>
+</Property>
+<SQLMap name="%%DDLBEIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="IDKEY">
+<BlockCount>-4</BlockCount>
+</SQLMap>
 <Index name="DDLBEIndex">
 <Location>^D1oJ.Bm7r.2</Location>
 </Index>

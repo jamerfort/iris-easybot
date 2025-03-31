@@ -49,6 +49,7 @@ Storage Default
 <DataLocation>^D1oJ.Bm7r.1</DataLocation>
 <DefaultData>TargetsDefaultData</DefaultData>
 <ExtentLocation>^D1oJ.Bm7r</ExtentLocation>
+<ExtentSize>13</ExtentSize>
 <IdFunction>sequence</IdFunction>
 <IdLocation>^D1oJ.Bm7r.1</IdLocation>
 <Index name="DDLBEIndex">
@@ -58,6 +59,40 @@ Storage Default
 <Location>^D1oJ.Bm7r.1</Location>
 </Index>
 <IndexLocation>^D1oJ.Bm7r.I</IndexLocation>
+<Property name="%%ID">
+<AverageFieldSize>3</AverageFieldSize>
+<Selectivity>1</Selectivity>
+</Property>
+<Property name="Display">
+<AverageFieldSize>19.15</AverageFieldSize>
+<Selectivity>7.6923%</Selectivity>
+</Property>
+<Property name="Embedding">
+<AverageFieldSize>8516</AverageFieldSize>
+<Selectivity>1</Selectivity>
+</Property>
+<Property name="ID">
+<AverageFieldSize>39.15</AverageFieldSize>
+<Selectivity>7.6923%</Selectivity>
+</Property>
+<Property name="Keywords">
+<Selectivity>7.6923%</Selectivity>
+</Property>
+<Property name="Spec">
+<AverageFieldSize>39.15</AverageFieldSize>
+<Selectivity>7.6923%</Selectivity>
+</Property>
+<Property name="Type">
+<AverageFieldSize>7</AverageFieldSize>
+<OutlierSelectivity>.999999:"Agent"</OutlierSelectivity>
+<Selectivity>0.0001%</Selectivity>
+</Property>
+<SQLMap name="%%DDLBEIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="IDKEY">
+<BlockCount>-4</BlockCount>
+</SQLMap>
 <StreamLocation>^D1oJ.Bm7r.S</StreamLocation>
 <Type>%Storage.Persistent</Type>
 }
